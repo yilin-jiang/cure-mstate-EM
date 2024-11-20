@@ -17,7 +17,6 @@ fit_alpha=readRDS("fit_alpha.rda")
 cox_full=readRDS("cox_full.rda")
 data_mstate=read.table("data_longlong.txt",head=TRUE)
 
-
 tmat0=transMat(x = list(c(2, 3, 5, 6), c(4, 5, 6), c(4, 5, 6), c(5, 6),
                         c(6), c()), names = c("Transplant", "Recovery","Adverse Event","Adverse Event\nand Recovery",
                                               "Relapse","Death"))
