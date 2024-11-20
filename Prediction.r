@@ -14,7 +14,7 @@ ebmt=ebmt4
 
 #READ MODEL RESULTS
 fit_alpha=readRDS("fit_alpha.rda")
-cox_full=readRDS("13 transitions\\cox_full.rda")
+cox_full=readRDS("cox_full.rda")
 data_mstate=read.table("data_longlong.txt",head=TRUE)
 
 
