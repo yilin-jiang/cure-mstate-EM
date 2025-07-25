@@ -3,13 +3,13 @@ data("ebmt4")
 ebmt=ebmt4
 
 #load functions
-source("calculate_hazard.R")
-source("create_datalonglong.R")
-source("add_likelihood.R")
-source("calculate_weight_mstate.R")
-source("create_datalogit.R")
-source("calculate_loglik_ob.R")
-source("update_pi.R")
+source("functions/calculate_hazard.R")
+source("functions/create_datalonglong.R")
+source("functions/add_likelihood.R")
+source("functions/calculate_weight_mstate.R")
+source("functions/create_datalogit.R")
+source("functions/calculate_loglik_ob.R")
+source("functions/update_pi.R")
 
 ########## initial values #########
 ###### pi: probability of being noncured ######
@@ -28,6 +28,13 @@ tmat0
 data_long0= msprep(data = ebmt, trans = tmat0, time = c(NA, "rec", "ae","recae", "rel", "srv"), 
                    status = c(NA, "rec.s", "ae.s", "recae.s","rel.s", "srv.s"), keep = c("match", "proph", "year", "agecl"))
 events(data_long0)
+
+### cumulative hazard per transition ###
+msdata_expanded=expand.covs(data_long0,covs=c("year","agecl","proph","match"),longnames=FALSE)
+cox_model_all <- coxph(Surv(Tstart, Tstop, status) ~ strata(trans), data = msdata_expanded)
+msf <- msfit(cox_model_all, trans = tmat0, variance = FALSE)
+plot(msf, col = 1:12, xlab = "Time", ylab = "Cumulative hazard")
+legend("topleft", legend = paste("Transition", msf$transitions), col = 1:12, lty = 1)
 
 ##### betas #####
 #### standard mstate model ####
@@ -155,6 +162,6 @@ while(epsilon >0.0001){
 }
 
 #save results from the last iteration
-saveRDS(cox_mstate,file="cox_mstate.rda")
-saveRDS(fit_alpha,file="fit_alpha.rda")
-write.csv(data_longlong,"data_longlong.csv",row.names=FALSE)
+saveRDS(cox_mstate,file="results/cox_mstate.rda")
+saveRDS(fit_alpha,file="results/fit_alpha.rda")
+write.csv(data_longlong,"results/data_longlong.csv",row.names=FALSE)
