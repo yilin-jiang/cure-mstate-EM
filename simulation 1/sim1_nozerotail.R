@@ -1,11 +1,5 @@
-# install.packages("GenKern_1.2-60.tar.gz",
-#                  repos = NULL,
-#                  type = "source")
-library(GenKern)
-# install.packages("MultiCure-master.zip",
-#                  repos = NULL,
-#                  type = "source")
 
+library(GenKern)
 library(MultiCure)
 library(mstate)
 #load functions

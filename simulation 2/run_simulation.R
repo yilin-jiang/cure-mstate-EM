@@ -1,15 +1,7 @@
 ##run simulation##
 
 #load packages
-# install.packages("../function/GenKern_1.2-60.tar.gz",
-#                                   repos = NULL,
-#                                     type = "source")
 library(GenKern)
-# remotes::install_github("../function/lbeesleyBIOSTAT/MultiCure",
-#                          dependencies = TRUE)
-# install.packages("MultiCure-master.zip",
-#                  repos = NULL,
-#                  type = "source")
 library(MultiCure)
 library(mstate)
 library(mice)
