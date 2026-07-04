@@ -1,15 +1,15 @@
 ##run simulation##
-setwd("../simulation 2")
+
 #load packages
-install.packages("../function/GenKern_1.2-60.tar.gz",
-                                  repos = NULL,
-                                    type = "source")
+# install.packages("../function/GenKern_1.2-60.tar.gz",
+#                                   repos = NULL,
+#                                     type = "source")
 library(GenKern)
 # remotes::install_github("../function/lbeesleyBIOSTAT/MultiCure",
 #                          dependencies = TRUE)
-install.packages("MultiCure-master.zip",
-                 repos = NULL,
-                 type = "source")
+# install.packages("MultiCure-master.zip",
+#                  repos = NULL,
+#                  type = "source")
 library(MultiCure)
 library(mstate)
 library(mice)
@@ -27,4 +27,4 @@ invisible(lapply(files, source))
 load("scenarios.RData")
 full_factorial<-as.data.frame(full_factorial)
 
-run_scenario(scen,n_sim=500,base_seed=12345,full_factorial)
+run_scenario(scen,n_sim=500,base_seed=12345,full_factorial) #scen can be chosen from 1 to 9.

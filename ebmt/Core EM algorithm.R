@@ -9,6 +9,12 @@ invisible(lapply(files, source))
 data("ebmt4")
 ebmt=ebmt4
 
+#patient baseline characteristics table
+table(ebmt$year)
+table(ebmt$agecl)
+table(ebmt$proph)
+table(ebmt$match)
+
 ##### initialize parameters #####
 relap_rawprop=proportions(table(ebmt$rel.s))[2]
 

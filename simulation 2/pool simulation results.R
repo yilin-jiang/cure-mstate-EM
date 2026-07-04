@@ -1,4 +1,4 @@
-setwd("../simulation 2")
+
 load("scenarios_v1.RData")
 
 #load packages

@@ -1,10 +1,9 @@
+#load R packages and functions needed
 library(dplyr)
 library(tidyr)
 library(ggplot2)
 library(latex2exp)
 
-
-setwd("../simulation 1")
 source("../function/nested loop plot with mce.R")
 
 #functions needed

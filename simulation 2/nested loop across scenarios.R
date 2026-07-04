@@ -1,4 +1,4 @@
-setwd("../simulation 2")
+#load packages and functions
 source("../function/nested loop plot with mce.R")
 library(data.table)
 library(ggplot2)
