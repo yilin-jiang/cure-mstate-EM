@@ -20,7 +20,7 @@ create_datalonglong <- function(data_long, transition, id) {
   
   data_longlong <- unique(data_longlong)
   
-  data_longlong<-data_longlong[-which(data_longlong$Tstart==data_longlong$Tstop),]
+  data_longlong<-data_longlong[data_longlong$Tstart!=data_longlong$Tstop,]
   # Order by id, from, and to columns
   data_longlong <- data_longlong[order(data_longlong[, id], data_longlong$from, data_longlong$to), ]
   

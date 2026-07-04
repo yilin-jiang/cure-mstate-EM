@@ -5,7 +5,7 @@ library(ggplot2)
 library(latex2exp)
 
 #load scenarios for simulation
-load("scenarios_v1.RData")
+load("scenarios.RData")
 
 ###Combine results across scenarios####
 all_tables <- list()
